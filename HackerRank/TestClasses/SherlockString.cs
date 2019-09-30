@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HackerRank
 {
@@ -9,6 +11,19 @@ namespace HackerRank
         {
             string s = Args[0].ToString();
             return GetValidString(s);
+        }
+        protected override void DoAutoTesting()
+        {
+            Assert.AreEqual(GetValidString("abcd"), "YES", "abcd is valid");
+            Assert.AreEqual(GetValidString("abbcd"), "YES", "abbcd is valid");
+            Assert.AreEqual(GetValidString("aaaaab"), "YES", "aaaaab is valid");
+            Assert.AreEqual(GetValidString("aaabbbb"), "YES", "aaabbbb is valid");
+            Assert.AreEqual(GetValidString("aaaaab"), "YES", "aaaaab is valid");
+            Assert.AreEqual(GetValidString("abababab"), "YES", "abababab is valid");
+
+            Assert.AreEqual(GetValidString("abcdddd"), "NO", "abcdddd is not valid");
+            Assert.AreEqual(GetValidString("abvssmma"), "NO", "abvssmma is not valid");
+
         }
 
         public SherlockString()
@@ -68,11 +83,11 @@ namespace HackerRank
                                 {
                                     if (occurrencesOne.Count - occurrencesMany.Count > 1)
                                     {
-                                        invalidString = true;
+                                        invalidString = true; ;
                                     }
                                 } else
                                 {
-                                    invalidString = occurrencesMany.Count > 1 && 
+                                    invalidString = occurrencesMany.Count > 1 && Math.Abs(occurrencesOne.Count - occurrencesMany.Count) > 1;
                                 }
 
 

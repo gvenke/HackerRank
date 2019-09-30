@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System;
@@ -14,9 +14,10 @@ class HackerRankTest
 
     static void Main(string[] args)
     {
-
-        _hackerRank = new SherlockString();
-        
+    
+         _hackerRank = new SherlockString();
+        _hackerRank.RunAutoTests();
+        Console.WriteLine("\nStart manual testing...\n");
         Start:
             int argCounter = 0;
 
