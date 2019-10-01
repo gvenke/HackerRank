@@ -7,14 +7,14 @@ namespace HackerRank
     {
         private const string AutoTestsPassed = "** ALL TESTS PASSED** ";
         private const string AutoTestsFailed = "** TEST FAILURE **";
-        protected object[] _args;
+        protected object[] _args;        
 
-        public abstract object TestFunction();
-
-        protected virtual void DoAutoTesting()
+        internal virtual void DoAutoTesting()
         {
             Console.WriteLine("No tests to execute");
         }
+
+        public abstract object RunManualTest();
 
         public object[] Args => _args;
 

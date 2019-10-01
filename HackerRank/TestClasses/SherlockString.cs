@@ -7,22 +7,22 @@ namespace HackerRank
 {
     public class SherlockString: HackerRankBase
     {
-        public override object TestFunction()
+        public override object RunManualTest()
         {
-            string s = Args[0].ToString();
+            string s = _args[0].ToString();
             return GetValidString(s);
         }
-        protected override void DoAutoTesting()
+        internal override void DoAutoTesting()
         {
-            Assert.AreEqual(GetValidString("abcd"), "YES", "abcd is valid");
-            Assert.AreEqual(GetValidString("abbcd"), "YES", "abbcd is valid");
-            Assert.AreEqual(GetValidString("aaaaab"), "YES", "aaaaab is valid");
-            Assert.AreEqual(GetValidString("aaabbbb"), "YES", "aaabbbb is valid");
-            Assert.AreEqual(GetValidString("aaaaab"), "YES", "aaaaab is valid");
-            Assert.AreEqual(GetValidString("abababab"), "YES", "abababab is valid");
+            Assert.AreEqual("YES", GetValidString("abcd"), "abcd is valid");
+            Assert.AreEqual("YES", GetValidString("abbcd"), "abbcd is valid");
+            Assert.AreEqual("YES", GetValidString("aaaaab"), "aaaaab is valid");
+            Assert.AreEqual("YES", GetValidString("aaabbbb"), "aaabbbb is valid");
+            Assert.AreEqual("YES", GetValidString("aaaaab"), "aaaaab is valid");
+            Assert.AreEqual("YES", GetValidString("abababab"), "abababab is valid");
 
-            Assert.AreEqual(GetValidString("abcdddd"), "NO", "abcdddd is not valid");
-            Assert.AreEqual(GetValidString("abvssmma"), "NO", "abvssmma is not valid");
+            Assert.AreEqual("NO", GetValidString("abcdddd"), "abcdddd is not valid");
+            Assert.AreEqual("NO", GetValidString("abvssmma"), "abvssmma is not valid");
 
         }
 
@@ -69,9 +69,7 @@ namespace HackerRank
                         if (occurrencesOne.Count > 1)
                         {
                             var occurrencesMany = groups.First(o => o.Count != occurrencesOne.Count);
-
-                           
-
+                        
                             if (occurrencesMany.Count > occurrencesOne.Count && occurrencesMany.Occurrences > 1)
                             {
                                 invalidString = true;
@@ -89,9 +87,6 @@ namespace HackerRank
                                 {
                                     invalidString = occurrencesMany.Count > 1 && Math.Abs(occurrencesOne.Count - occurrencesMany.Count) > 1;
                                 }
-
-
-
                             }
                         }
                     }

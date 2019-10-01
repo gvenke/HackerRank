@@ -16,8 +16,13 @@ class HackerRankTest
     {
     
          _hackerRank = new SherlockString();
+
+        // run automated tests, if any
         _hackerRank.RunAutoTests();
+
+        // run manual tests
         Console.WriteLine("\nStart manual testing...\n");
+
         Start:
             int argCounter = 0;
 
@@ -29,8 +34,9 @@ class HackerRankTest
                     argCounter++;
                 } while (argCounter < _hackerRank.Args.Length - 1);
             }   
+
             // run test and output result
-            var result = _hackerRank.TestFunction();
+            var result = _hackerRank.RunManualTest();
             Console.WriteLine($"\n{result}\n");
             
             // rinse, repeat
