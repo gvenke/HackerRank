@@ -1,11 +1,4 @@
-﻿using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System;
+﻿using System;
 using HackerRank;
 
 class HackerRankTest
@@ -15,7 +8,7 @@ class HackerRankTest
     static void Main(string[] args)
     {
     
-         _hackerRank = new SherlockString();
+         _hackerRank = new HighValuePalidrome();
 
         // run automated tests, if any
         _hackerRank.RunAutoTests();

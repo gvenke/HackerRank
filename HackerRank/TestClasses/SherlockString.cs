@@ -12,6 +12,7 @@ namespace HackerRank
             string s = _args[0].ToString();
             return GetValidString(s);
         }
+
         internal override void DoAutoTesting()
         {
             Assert.AreEqual("YES", GetValidString("abcd"), "abcd is valid");
@@ -34,7 +35,6 @@ namespace HackerRank
         private string GetValidString(string s)
         {
             var dupeChecker = new Dictionary<char, int>();
-
             foreach (var curChar in s)
             {
                 if (dupeChecker.ContainsKey(curChar))
@@ -45,11 +45,9 @@ namespace HackerRank
                 {
                     dupeChecker.Add(curChar, 1);
                 }
-
             }
             bool invalidString = false;
             var groups = dupeChecker.GroupBy(o => o.Value, (count, occurrences) => new { Count = count, Occurrences = occurrences.Count() });
-
             int groupCount = groups.Count();
             if (groupCount > 2)
             {
@@ -76,7 +74,6 @@ namespace HackerRank
                             }
                             else
                             {
-
                                 if (occurrencesMany.Occurrences > 1)
                                 {
                                     if (occurrencesOne.Count - occurrencesMany.Count > 1)
