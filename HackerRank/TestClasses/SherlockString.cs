@@ -9,7 +9,7 @@ namespace HackerRank
     {
         public override object RunManualTest()
         {
-            string s = _args[0].ToString();
+            string s = _args[0];
             return GetValidString(s);
         }
 
@@ -29,7 +29,7 @@ namespace HackerRank
 
         public SherlockString()
         {
-            _args = new object[1];
+            _args = new string[1];
         }
 
         private string GetValidString(string s)

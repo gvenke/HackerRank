@@ -25,7 +25,7 @@ class HackerRankTest
                 {
                     _hackerRank.Args[argCounter] = Console.ReadLine();
                     argCounter++;
-                } while (argCounter < _hackerRank.Args.Length - 1);
+                } while (argCounter < _hackerRank.Args.Length);
             }   
 
             // run test and output result

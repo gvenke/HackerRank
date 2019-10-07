@@ -11,35 +11,38 @@ namespace HackerRank
     {
         public HighValuePalidrome()
         {
-            _args = new object[3];
+            _args = new string[3];
         }
         internal override void DoAutoTesting()
         {
-            Assert.AreEqual("3993", HighestValuePalindrome("3943", 4, 1), "3943  should convert to 3993");
-            Assert.AreEqual("3993", HighestValuePalindrome("3493", 4, 1), "3493  should convert to 3993");
-            Assert.AreEqual("3443", HighestValuePalindrome("3423", 4, 2), "3423  should convert to 3443");
-            Assert.AreEqual("34143", HighestValuePalindrome("34123", 5, 1), "34123  should convert to 34143");
-            Assert.AreEqual("-1", HighestValuePalindrome("39821", 5, 1), "39821  should not convert");
-            Assert.AreEqual("312515213", HighestValuePalindrome("310015213", 9, 2), "310015213  should convert to 312515213");
-            Assert.AreEqual("912515219", HighestValuePalindrome("310015213", 9, 4), "310015213  should convert to 912515219");
-            Assert.AreEqual("912595219", HighestValuePalindrome("310015213", 9, 5), "310015213  should convert to 912595219");
+            Assert.AreEqual("3993", HighestValuePalindrome("3943", 4, 1));
+            Assert.AreEqual("3443", HighestValuePalindrome("3423", 4, 1));
+            Assert.AreEqual("3993", HighestValuePalindrome("3423", 4, 2));
+            Assert.AreEqual("34143", HighestValuePalindrome("34123", 5, 1));
+            Assert.AreEqual("-1", HighestValuePalindrome("39821", 5, 1));
+
+            Assert.AreEqual("312515213", HighestValuePalindrome("310015213", 9, 2));
+            Assert.AreEqual("912515219", HighestValuePalindrome("310015213", 9, 4));
+            Assert.AreEqual("912595219", HighestValuePalindrome("310015213", 9, 5));
+            Assert.AreEqual("992299", HighestValuePalindrome("092282", 6, 3));
         }
 
         public override object RunManualTest()
         {
             string s = _args[0].ToString();
-            int n = (int)_args[1];
-            int k = (int)_args[2];
+            int n = Int32.Parse(_args[1]);
+            int k = Int32.Parse(_args[2]);
 
             return HighestValuePalindrome(s, n, k);
         }
 
         private string HighestValuePalindrome(string s, int n, int k)
         {
+            int diffs = 0;
             char maxChar = '9';
             int changeTracker = k;
             int numberConversion;
-            int indexToBrakeAt = -1;
+            bool hasCenter = false;
             if (n != s.Length)
             {
                 return "-1";
@@ -50,68 +53,80 @@ namespace HackerRank
             }
 
             var sb = new StringBuilder(s);
-            int deadCenterIndex = -1;
             for (int i = 0; i < s.Length; i++)
             {
-                if (changeTracker == 0 || indexToBrakeAt == i)
-                {
-                    break;
-                }
 
                 int curFromEndIndex = s.Length - 1 - i;
                 char curFromStart = s[i];
                 char curFromEnd = s[curFromEndIndex];
                
 
-                if (curFromEndIndex != i)
+
+
+
+                if (curFromEndIndex > i)
                 {
-                    if (curFromStart != curFromEnd) 
+                    if (curFromStart != curFromEnd)
                     {
-                        if ((int)curFromStart > (int)curFromEnd)
-                        {
-                            sb.Replace(curFromEnd, curFromStart, curFromEndIndex, 1);
-                        }
-                        else
-                        {
-                            sb.Replace(curFromStart, curFromEnd, i, 1);
-                        }
+                        diffs++;
                         changeTracker--;
-                        indexToBrakeAt = curFromEndIndex;
-                    } 
+                    }
                 }
-                else
+                else if (curFromEndIndex < i)
                 {
-                    deadCenterIndex = i;
-                }
-
-
-
+                    break;
+                } else
+                {
+                    hasCenter = true;
+                }               
             }
 
-            if (changeTracker > 0)
+            changeTracker = k;
+            for (int i = 0; i < s.Length; i++)
             {
-                for (int i = 0; i < s.Length; i++)
+                int curFromEndIndex = s.Length - 1 - i;
+                char curFromStart = s[i];
+                char curFromEnd = s[curFromEndIndex];
+                int diffsRemaining = changeTracker - diffs;
+                int charGap = curFromEndIndex - i;                
+                if (changeTracker == 0 || charGap < 0)
                 {
-                    if (changeTracker == 1)
+                    break;
+                } 
+                bool twoChanges = changeTracker > 1 && ((diffsRemaining > 0 && curFromEnd != curFromStart && !hasCenter) || diffsRemaining > 1 && hasCenter) && charGap > 0;
+                bool oneChange = changeTracker > 0 && ((curFromEnd != curFromStart && charGap > 0) || charGap == 0);
+
+                if (twoChanges)
+                {
+                    sb.Replace(curFromEnd, maxChar, curFromEndIndex, 1).Replace(curFromStart, maxChar, i, 1);
+                    changeTracker -= 2;
+                } else if (oneChange)
+                {
+                    char oldChar;
+                    char newChar;
+                    int newCharIndex;
+
+                    if (charGap == 0)
                     {
-                        if (deadCenterIndex > -1)
+                        oldChar = curFromStart;
+                        newChar = maxChar;
+                        newCharIndex = i;
+                    } else {
+                        if ((int)curFromStart > (int)curFromEnd)
                         {
-                            char charToReplace = s[deadCenterIndex];
-                            sb.Replace(charToReplace, maxChar, deadCenterIndex, 1);
-                            changeTracker--;
+                            oldChar = curFromEnd;
+                            newChar = curFromStart;
+                           
+                            newCharIndex = curFromEndIndex;
+                        } else
+                        {
+                            oldChar = curFromStart;
+                            newChar = curFromEnd;
+                            newCharIndex = i;
                         }
-                    } else
-                    {
-                        int curFromEndIndex = s.Length - 1 - i;
-                        char curFromStart = s[i];
-                        char curFromEnd = s[curFromEndIndex];
-                        sb.Replace(curFromEnd, maxChar, curFromEndIndex, 1).Replace(curFromStart, maxChar, i, 1);
-                        changeTracker -= 2;
-                    } 
-                    if (changeTracker == 0)
-                    {
-                        break;
                     }
+                    sb.Replace(oldChar, newChar, newCharIndex, 1);
+                    changeTracker--;
                 }
 
             }

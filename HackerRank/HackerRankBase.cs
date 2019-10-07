@@ -7,7 +7,7 @@ namespace HackerRank
     {
         private const string AutoTestsPassed = "** ALL TESTS PASSED** ";
         private const string AutoTestsFailed = "** TEST FAILURE **";
-        protected object[] _args;        
+        protected string[] _args;        
 
         internal virtual void DoAutoTesting()
         {
@@ -16,7 +16,7 @@ namespace HackerRank
 
         public abstract object RunManualTest();
 
-        public object[] Args => _args;
+        public string[] Args => _args;
 
         public void RunAutoTests()
         {
