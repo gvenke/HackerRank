@@ -25,6 +25,7 @@ namespace HackerRank
             Assert.AreEqual("912515219", HighestValuePalindrome("310015213", 9, 4));
             Assert.AreEqual("912595219", HighestValuePalindrome("310015213", 9, 5));
             Assert.AreEqual("992299", HighestValuePalindrome("092282", 6, 3));
+            Assert.AreEqual("992299", HighestValuePalindrome("932239", 6, 2));
         }
 
         public override object RunManualTest()
@@ -93,8 +94,8 @@ namespace HackerRank
                 {
                     break;
                 } 
-                bool twoChanges = changeTracker > 1 && ((diffsRemaining > 0 && curFromEnd != curFromStart && !hasCenter) || diffsRemaining > 1 && hasCenter) && charGap > 0;
-                bool oneChange = changeTracker > 0 && ((curFromEnd != curFromStart && charGap > 0) || charGap == 0);
+                bool twoChanges = changeTracker > 1 && ((diffsRemaining > 0 && curFromEnd != curFromStart && !hasCenter) || (diffsRemaining > 1)) && charGap > 0 && (curFromStart != maxChar && curFromEnd != maxChar);
+                bool oneChange = !twoChanges && changeTracker > 0 && ((curFromEnd != curFromStart && charGap > 0) || charGap == 0);
 
                 if (twoChanges)
                 {
