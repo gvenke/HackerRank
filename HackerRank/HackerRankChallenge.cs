@@ -3,11 +3,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HackerRank
 {
-    public abstract class HackerRankBase
+    public abstract class HackerRankChallenge
     {
         private const string AutoTestsPassed = "** ALL TESTS PASSED** ";
         private const string AutoTestsFailed = "** TEST FAILURE **";
-        protected string[] _args;        
+
+        protected string[] _args;
 
         internal virtual void DoAutoTesting()
         {
@@ -17,6 +18,8 @@ namespace HackerRank
         public abstract object RunManualTest();
 
         public string[] Args => _args;
+
+        public bool ManualTestingEnabled => _args != null;
 
         public void RunAutoTests()
         {

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRank", "HackerRank\HackerRank.csproj", "{647F5EA5-AE51-4D03-8797-3D80F5B1F5B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timed", "Timed\Timed.csproj", "{6D691855-46BE-472E-95BE-E03F8FA7B2EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{647F5EA5-AE51-4D03-8797-3D80F5B1F5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{647F5EA5-AE51-4D03-8797-3D80F5B1F5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{647F5EA5-AE51-4D03-8797-3D80F5B1F5B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D691855-46BE-472E-95BE-E03F8FA7B2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D691855-46BE-472E-95BE-E03F8FA7B2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D691855-46BE-472E-95BE-E03F8FA7B2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D691855-46BE-472E-95BE-E03F8FA7B2EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

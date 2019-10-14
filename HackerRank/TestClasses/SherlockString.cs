@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HackerRank
 {
-    public class SherlockString: HackerRankBase
+    public class SherlockString: HackerRankChallenge
     {
         public override object RunManualTest()
         {
