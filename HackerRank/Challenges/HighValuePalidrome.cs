@@ -126,7 +126,7 @@ namespace HackerRank
                         {
                             if (spareChanges > 0 && (curFromStart != maxChar && curFromEnd != maxChar))
                             {
-                                // change both chars to "9" if both chars are unequal and there are changes to spare
+                                // change both chars to "9" if both chars are unequal (and neither is already "9") and there are changes to spare
                                 changesToMake = 2;
                             } else
                             {
