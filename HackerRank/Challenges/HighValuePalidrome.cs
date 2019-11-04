@@ -32,7 +32,7 @@ namespace HackerRank
 
         public override object RunManualTest()
         {
-            string s = _args[0].ToString();
+            string s = _args[0];
             int n = Int32.Parse(_args[1]);
             int k = Int32.Parse(_args[2]);
 
@@ -152,7 +152,6 @@ namespace HackerRank
                             {
                                 oldChar = curFromEnd;
                                 newChar = curFromStart;
-
                                 newCharIndex = curFromEndIndex;
                             }
                             else

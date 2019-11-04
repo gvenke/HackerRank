@@ -3,38 +3,46 @@ using HackerRank;
 
 class TestBed
 {
-    private static HackerRankChallenge _hackerRank;
+    private static HackerRankChallenge _challenge;
 
     static void Main(string[] args)
     {
-    
-         _hackerRank = new HighValuePalidrome();
+
+        _challenge = new HighValuePalidrome();
 
         // run automated tests, if any
-        _hackerRank.RunAutoTests();
+        _challenge.RunAutoTests();
 
-        // initiate manual testing if applicable
-        if (_hackerRank.ManualTestingEnabled)
-        {
-            // run manual tests
-            Console.WriteLine("\nSTART MANUAL TESTING...\n");
+        // run manual tests
+        Console.WriteLine("\nSTART MANUAL TESTING...\n");
 
-            Start:
-                int argCounter = 0;
+        Start:
+            if (_challenge.Args?.Length > 0)
+            {
+                Console.WriteLine($"Enter {_challenge.Args.Length} arguments\n");
+            }
+            
+            int argCounter = 0;
 
-                // collect arguments from user input if applicable
-                while (argCounter < _hackerRank.Args.Length)
-                {
-                    _hackerRank.Args[argCounter] = Console.ReadLine();
-                    argCounter++;
-                }
+            // collect arguments from user input if applicable
+            while (argCounter < _challenge.Args?.Length)
+            {                    
+                _challenge.Args[argCounter] = Console.ReadLine();
+                argCounter++;
+            }
 
-                // run test and output result
-                var result = _hackerRank.RunManualTest();
-                Console.WriteLine($"\n{result}\n");
+            // run test and output result
+            try
+            {
+                var result = _challenge.RunManualTest();
+                Console.Write($"\nRESULT: {result}");
+            } catch (Exception e) {
+                Console.WriteLine($"ERROR OCCURRED: {e.Message}\n");
+            }
+            Console.ReadLine();
 
-                // rinse, repeat
-                goto Start;
-        }
+            // rinse, repeat
+            goto Start;
+    
     }
 }

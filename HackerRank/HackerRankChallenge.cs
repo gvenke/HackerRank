@@ -19,7 +19,7 @@ namespace HackerRank
 
         public string[] Args => _args;
 
-        public bool ManualTestingEnabled => _args != null;
+       // public bool ManualTestingEnabled => _args != null;
 
         public void RunAutoTests()
         {
