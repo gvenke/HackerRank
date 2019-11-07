@@ -8,7 +8,7 @@ class TestBed
     static void Main(string[] args)
     {
 
-        _challenge = new HighValuePalidrome();
+        _challenge = new SherlockAndAnagrams();
 
         // run automated tests, if any
         _challenge.RunAutoTests();

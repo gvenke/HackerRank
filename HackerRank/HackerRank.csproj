@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Challenges\SandBox.cs" />
+    <Compile Include="Challenges\SherlockAndAnagrams.cs" />
     <Compile Include="HackerRankChallenge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBed.cs" />
