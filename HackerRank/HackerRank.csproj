@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Challenges\CommonChild.cs" />
     <Compile Include="Challenges\SandBox.cs" />
     <Compile Include="Challenges\SherlockAndAnagrams.cs" />
     <Compile Include="HackerRankChallenge.cs" />

@@ -10,7 +10,7 @@ namespace HackerRank
 
         protected string[] _args;
 
-        internal virtual void DoAutoTesting()
+        protected virtual void DoAutoTesting()
         {
             Console.WriteLine("No tests to execute");
         }

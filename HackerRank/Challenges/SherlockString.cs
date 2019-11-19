@@ -13,7 +13,7 @@ namespace HackerRank
             return GetValidString(s);
         }
 
-        internal override void DoAutoTesting()
+        protected override void DoAutoTesting()
         {
             Assert.AreEqual("YES", GetValidString("abcd"), "abcd is valid");
             Assert.AreEqual("YES", GetValidString("abbcd"), "abbcd is valid");

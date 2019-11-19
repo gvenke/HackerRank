@@ -17,7 +17,7 @@ namespace HackerRank
             _args = new string[1];
         }
 
-        internal override void DoAutoTesting()
+        protected override void DoAutoTesting()
         {
             Assert.AreEqual(0, sherlockAndAnagrams(null), "NULL");
             Assert.AreEqual(0, sherlockAndAnagrams(""), "EMPTY STRING");

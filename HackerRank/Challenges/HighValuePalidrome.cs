@@ -12,7 +12,7 @@ namespace HackerRank
             _args = new string[3];
         }
 
-        internal override void DoAutoTesting()
+        protected override void DoAutoTesting()
         {
             Assert.AreEqual("3993", HighestValuePalindrome("3943", 4, 1));
             Assert.AreEqual("3443", HighestValuePalindrome("3423", 4, 1));
