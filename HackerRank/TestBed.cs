@@ -8,7 +8,7 @@ class TestBed
     static void Main(string[] args)
     {
 
-        _challenge = new CommonChild();
+        _challenge = new SandBox();
 
         //// begin temp code
         //string[] a1 = new[] { "WEWOUCUIDG", "CGTRMEZEPX", "ZFEJWISRSB", "BSYXAYDFEJ", "JDLEBVHHKS" };
